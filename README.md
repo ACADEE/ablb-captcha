@@ -1,38 +1,28 @@
 # ABLB CAPTCHA
 
-Prototype ludique d’une banque fictive suivi de dix défis de vérification humaine. La simulation est identifiée dans l’interface et ne traite aucune opération bancaire réelle.
+Jeu de patience et de logique : dix défis successifs avec validation, progression et écran de réussite animé.
 
 ## Démarrage
-
-Aucune dépendance à installer. Depuis la racine du dépôt :
 
 ```sh
 python3 -m http.server 8080 --directory dist
 ```
 
-Ouvrir http://localhost:8080.
+Ouvrir http://localhost:8080. Le fichier `dist/index.html` est autonome, sans dépendance ni compilation.
 
 ## Parcours
 
-1. Saisir un e-mail quelconque et le code de démonstration `1234`.
-2. Consulter le solde fictif de 9 600 000 €.
-3. Cliquer sur « Faire un virement ».
-4. Réussir les dix défis. Le mode démo permet de naviguer entre les écrans et de pré-sélectionner les solutions.
-5. Afficher le message « Bravo, vous avez une grande patience ! » avec une animation de confettis.
+1. Cliquer sur « Commencer les 10 défis ».
+2. Sélectionner et valider une réponse à chaque épreuve. Une réponse incorrecte permet de réessayer.
+3. Terminer les dix défis pour afficher « Bravo, vous avez une grande patience ! » et deux jets de confettis.
+4. Rejouer à volonté.
 
 Les confettis respectent la préférence système de réduction des animations.
 
-## Données
+## Confidentialité
 
-Les saisies restent en mémoire dans le navigateur et sont effacées après connexion. Aucun e-mail ni code n’est envoyé à un serveur. Pas de webhook, de traqueur, de stockage de données personnelles ou de connexion à une banque réelle.
+Aucun compte, aucune donnée personnelle, aucun stockage et aucun appel réseau applicatif. L'application ne représente pas une banque et ne réalise aucune opération bancaire.
 
-## Contenu
+## Déploiement
 
-- `dist/index.html` : écrans et structure.
-- `dist/style.css` : présentation responsive.
-- `dist/app.js` : dix défis et validation.
-- `dist/bank.js` : navigation et connexion de démonstration.
-- `dist/confetti.js` : animation de réussite.
-- `dist/assets/` : dix images générées pour le prototype.
-
-Site statique sans compilation, installable sur tout hébergement statique dont la racine est `dist`.
+Publier le répertoire `dist` sur un hébergement statique.
